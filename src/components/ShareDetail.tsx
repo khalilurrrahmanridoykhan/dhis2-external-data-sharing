@@ -155,7 +155,7 @@ export function ShareDetail({
           </p>
           <p>
             {i18n.t(
-              "This account can browse the data in DHIS2's own Dashboard and Data Visualizer apps, but confirmed live it can't open External Data Sharing itself from DHIS2's own menu (a platform limitation, not fixable here). It can always reach the login page, Profile, Dashboard, and Data Visualizer. If you didn't already send full instructions when this share was created, you'll need to relay the login and steps to them directly.",
+              "This account can browse the data in DHIS2's own Dashboard and Data Visualizer apps, but it can't open External Data Sharing from DHIS2's menu. It can reach the login page, Profile, Dashboard, and Data Visualizer. If you haven't already sent the recipient the full instructions, send them the login and these steps directly.",
             )}
           </p>
           {canManage && (
