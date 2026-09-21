@@ -175,10 +175,10 @@ export function ApiShareForm({ currentUsername, shares, onClose, onSaveShare }: 
           <NoticeBox title={i18n.t('How this works')}>
             {accountMode === 'attach'
               ? i18n.t(
-                  'This attaches the share below to the recipient’s existing service account. No new login or password is created — they’ll see this data the next time they use their existing token.',
+                  'This grants the recipient’s existing service account read access to the dataset and builds a dedicated dashboard for this share. It does not change the account’s org units, so the account can only read data for org units it already has. No new login or password is created.',
                 )
               : i18n.t(
-                  'This creates a new, read-only DHIS2 account scoped to the data below and grants it read access to the dataset. DHIS2 API tokens are self-service only, so one manual step remains after this -- whoever administers the new account has to log in once to generate its token.',
+                  'This creates a new, read-only DHIS2 account limited to the org units below (and their children), with read access to the whole dataset. The data elements you pick only decide what appears on the recipient’s dashboard; they do not limit what the account can read. DHIS2 API tokens are self-service only, so one manual step remains -- whoever administers the new account has to log in once to generate its token.',
                 )}
           </NoticeBox>
         </div>
