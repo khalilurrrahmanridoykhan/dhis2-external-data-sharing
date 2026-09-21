@@ -85,7 +85,7 @@ export interface ShareRecord {
   revokedBy: string | null
 }
 
-export const SHARE_HUB_ROLE_NAME = 'Scoped Data Sharing - Read Only'
+export const SHARE_HUB_ROLE_NAME = 'External Data Sharing - Read Only'
 
 export function newShareId(): string {
   return crypto.randomUUID()

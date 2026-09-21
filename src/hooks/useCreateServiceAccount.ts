@@ -16,7 +16,7 @@ import { useShareHubSettings } from './useShareHubSettings'
 export type CredentialChoice = { method: 'invite_email'; email: string } | { method: 'temp_password' }
 
 // mode: 'create' mints a brand-new dedicated service account (today's only
-// behavior); mode: 'attach' reuses an already-existing Scoped Data Sharing
+// behavior); mode: 'attach' reuses an already-existing External Data Sharing
 // account (picked from useServiceAccounts) instead, so one real recipient
 // can hold multiple shares under one login. Revoke behavior for each is
 // handled separately -- see useRevokeServiceAccount.ts.

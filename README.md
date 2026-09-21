@@ -1,4 +1,4 @@
-# Scoped Data Sharing
+# External Data Sharing
 
 Share a defined slice of aggregate data with someone outside your organisation, in a controlled way that you can track and revoke.
 
@@ -82,7 +82,7 @@ The recipient may not be able to open this app from their DHIS2 menu. They do no
 ## What the app creates on your instance
 
 - Saved shares and one setting, in the data store under the namespace `dataShareHub`.
-- For API shares: a user account, a user role named `Scoped Data Sharing - Read Only`, and a dashboard and visualization named `Scoped Data Sharing: <share name>`.
+- For API shares: a user account, a user role named `External Data Sharing - Read Only`, and a dashboard and visualization named `External Data Sharing: <share name>`.
 
 The app makes no calls outside your DHIS2 instance.
 

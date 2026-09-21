@@ -77,7 +77,7 @@ export function CredentialHandoff({
           '',
         ]),
     i18n.t(
-      'Note -- this account will not show up in the DHIS2 app menu/search for Scoped Data Sharing itself -- that is expected. It only needs the login page, Profile, and the dashboard link above, all of which work.',
+      'Note -- this account will not show up in the DHIS2 app menu/search for External Data Sharing itself -- that is expected. It only needs the login page, Profile, and the dashboard link above, all of which work.',
     ),
   ].join('\n')
 

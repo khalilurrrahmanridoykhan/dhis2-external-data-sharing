@@ -20,7 +20,7 @@ export interface UserRolePayload {
 // This exists because of a real, confirmed DHIS2 platform limitation: a
 // role with zero authorities can authenticate and its data access works
 // correctly, but DHIS2's own app menu excludes ALL custom (non-core) apps
-// for such an account -- including Scoped Data Sharing itself -- even though
+// for such an account -- including External Data Sharing itself -- even though
 // this app declares no restriction. The only authority found that unlocks
 // custom-app visibility at all is M_dhis-web-app-management, which is
 // nowhere near appropriate here (it grants install/manage/uninstall over
@@ -103,7 +103,7 @@ export function buildServiceAccountPayload(options: BuildServiceAccountPayloadOp
   const orgUnits = options.orgUnitIds.map((id) => ({ id }))
   const payload: ServiceAccountPayload = {
     username: options.username,
-    firstName: 'Scoped Data Sharing',
+    firstName: 'External Data Sharing',
     surname: `(${options.label})`.slice(0, 160),
     userRoles: [{ id: options.userRoleId }],
     organisationUnits: orgUnits,

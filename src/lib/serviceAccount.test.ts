@@ -50,7 +50,7 @@ function makeShare(overrides: Partial<ShareRecord> = {}): ShareRecord {
 describe('buildUserRolePayload', () => {
   test('uses the shared role name and grants only Dashboard + Data Visualizer visibility', () => {
     // Confirmed live: a zero-authority account can't open ANY custom app
-    // (including Scoped Data Sharing itself) from DHIS2's own menu, and the only
+    // (including External Data Sharing itself) from DHIS2's own menu, and the only
     // authority that unlocks custom-app visibility at all is
     // M_dhis-web-app-management -- far too broad for a read-only recipient.
     // These two authorities were confirmed live to each unlock only their

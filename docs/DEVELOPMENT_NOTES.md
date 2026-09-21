@@ -1,6 +1,6 @@
 # Development notes
 
-Design decisions and verification history for Scoped Data Sharing (originally
+Design decisions and verification history for External Data Sharing (originally
 named Data Share Hub, which is the name used in the notes below): how the
 app arrived at its current behaviour, what was checked against a live DHIS2
 instance, and the trade-offs behind it. This is background for maintainers and

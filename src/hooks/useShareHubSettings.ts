@@ -22,7 +22,7 @@ export interface UseShareHubSettingsResult extends State {
   setMinimalRoleId: (roleId: string) => Promise<void>
 }
 
-// Caches the "Scoped Data Sharing - Read Only" userRole id once it's been
+// Caches the "External Data Sharing - Read Only" userRole id once it's been
 // looked up or created (see lib/serviceAccount.ts), so it's not re-searched
 // or re-created on every share.
 export function useShareHubSettings(): UseShareHubSettingsResult {
