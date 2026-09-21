@@ -219,7 +219,7 @@ async function reserveUniqueUsername(engine: Engine, label: string, attempts = 5
   throw new Error('Could not generate a unique service account username after several attempts -- try a different name.')
 }
 
-// Orchestrates the honest, partially-automated API-sharing flow (README
+// Orchestrates the honest, partially-automated API-sharing flow (docs/DEVELOPMENT_NOTES.md
 // spells out the full rationale): creates a scoped read-only service
 // account, grants it read access to the dataset, and builds a dedicated
 // private dashboard for the recipient. Does NOT and cannot mint that

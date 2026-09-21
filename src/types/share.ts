@@ -16,7 +16,7 @@ export type ShareMethod = 'csv_export' | 'api_account'
 //   Stated as such in the UI, not hidden behind false confidence.
 // revoked: service account has been disabled (PATCH /api/users/{id},
 //   disabled: true). The reliable, documented revoke mechanism -- see
-//   README for why this is used instead of deleting a specific PAT
+//   docs/DEVELOPMENT_NOTES.md for why this is used instead of deleting a specific PAT
 //   (whether an admin can delete another user's PAT via API is unconfirmed).
 export type ShareStatus = 'draft' | 'account_created' | 'active' | 'revoked'
 

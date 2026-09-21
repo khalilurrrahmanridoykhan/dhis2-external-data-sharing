@@ -126,7 +126,7 @@ export interface SharingObject {
 }
 
 // DHIS2's read-metadata + read-data access string. Verify live before
-// shipping (see README) -- this must be confirmed against a real GET
+// shipping (see docs/DEVELOPMENT_NOTES.md) -- this must be confirmed against a real GET
 // /api/sharing response for the exact access-string convention this
 // instance's DHIS2 core version uses; do not assume it's correct from
 // memory alone.
@@ -143,7 +143,7 @@ export function addUserAccess(existing: SharingObject, userId: string, access: s
 // Reverses a prior addUserAccess -- used if a share is ever deleted before
 // being revoked, so the dataset's sharing doesn't accumulate stale entries
 // for accounts that no longer need access. (The primary revoke mechanism is
-// still disabling the account -- see README -- this is a secondary cleanup,
+// still disabling the account -- see docs/DEVELOPMENT_NOTES.md -- this is a secondary cleanup,
 // not relied on as the security boundary.)
 export function removeUserAccess(existing: SharingObject, userId: string): SharingObject {
   return { ...existing, userAccesses: (existing.userAccesses ?? []).filter((ua) => ua.id !== userId) }
