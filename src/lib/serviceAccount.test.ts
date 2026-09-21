@@ -1,3 +1,4 @@
+import '../test-utils/webcrypto'
 import {
   addUserAccess,
   buildServiceAccountPayload,
@@ -93,6 +94,17 @@ describe('generateTempPassword', () => {
 
   test('produces different passwords across calls', () => {
     expect(generateTempPassword()).not.toBe(generateTempPassword())
+  })
+
+  test('never draws from Math.random, which is not a cryptographic generator', () => {
+    const mathRandom = jest.spyOn(Math, 'random')
+    try {
+      generateTempPassword()
+      generateServiceUsername('Test')
+      expect(mathRandom).not.toHaveBeenCalled()
+    } finally {
+      mathRandom.mockRestore()
+    }
   })
 })
 

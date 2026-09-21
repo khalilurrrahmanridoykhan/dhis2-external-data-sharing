@@ -2,6 +2,7 @@
 // HTTP orchestration lives in hooks/useCreateServiceAccount.ts.
 
 import { SHARE_HUB_ROLE_NAME, type ShareRecord } from '../types/share'
+import { secureRandomChar, secureRandomInt } from './secureRandom'
 
 export interface UserRolePayload {
   name: string
@@ -31,6 +32,8 @@ export function buildUserRolePayload(): UserRolePayload {
   return { name: SHARE_HUB_ROLE_NAME, authorities: ['M_dhis-web-dashboard', 'M_dhis-web-data-visualizer'] }
 }
 
+const USERNAME_SUFFIX_CHARS = 'abcdefghijklmnopqrstuvwxyz0123456789'
+
 // e.g. "share.malaria-donor-report.a1b2c3" -- readable, unique enough to
 // avoid collisions without needing a server round trip to check first.
 export function generateServiceUsername(label: string): string {
@@ -39,7 +42,7 @@ export function generateServiceUsername(label: string): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 30)
-  const suffix = Math.random().toString(36).slice(2, 8)
+  const suffix = Array.from({ length: 6 }, () => secureRandomChar(USERNAME_SUFFIX_CHARS)).join('')
   return `share.${slug || 'account'}.${suffix}`
 }
 
@@ -48,23 +51,19 @@ const PASSWORD_UPPER = 'ABCDEFGHJKLMNPQRSTUVWXYZ' // no I/O
 const PASSWORD_DIGITS = '23456789' // no 0/1
 const PASSWORD_SPECIAL = '!@#$%^&*'
 
-function randomChar(pool: string): string {
-  return pool[Math.floor(Math.random() * pool.length)]
-}
-
 // Meets DHIS2's typical default password policy: minimum length, at least
 // one upper/lower/digit/special character. Verify against the target
 // instance's actual configured password policy at implementation time --
 // some instances tighten this further.
 export function generateTempPassword(): string {
-  const required = [randomChar(PASSWORD_UPPER), randomChar(PASSWORD_LOWER), randomChar(PASSWORD_DIGITS), randomChar(PASSWORD_SPECIAL)]
+  const required = [secureRandomChar(PASSWORD_UPPER), secureRandomChar(PASSWORD_LOWER), secureRandomChar(PASSWORD_DIGITS), secureRandomChar(PASSWORD_SPECIAL)]
   const allPools = PASSWORD_LOWER + PASSWORD_UPPER + PASSWORD_DIGITS + PASSWORD_SPECIAL
-  const rest = Array.from({ length: 8 }, () => randomChar(allPools))
+  const rest = Array.from({ length: 8 }, () => secureRandomChar(allPools))
   const combined = [...required, ...rest]
   // Fisher-Yates shuffle so the required characters aren't always in the
   // same leading positions.
   for (let i = combined.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
+    const j = secureRandomInt(i + 1)
     ;[combined[i], combined[j]] = [combined[j], combined[i]]
   }
   return combined.join('')
