@@ -53,7 +53,7 @@ export interface VisualizationPayload {
 // do read it, but it is not sufficient on its own.
 export function buildVisualizationPayload(label: string, dataElementIds: string[], orgUnitIds: string[]): VisualizationPayload {
   return {
-    name: `Data Share Hub: ${label}`.slice(0, 230),
+    name: `Scoped Data Sharing: ${label}`.slice(0, 230),
     type: 'PIVOT_TABLE',
     rows: [{ dimension: 'pe', items: [{ id: 'LAST_12_MONTHS' }] }],
     columns: [{ dimension: 'dx', items: dataElementIds.map((id) => ({ id })) }],
@@ -91,7 +91,7 @@ export interface DashboardPayload {
 
 export function buildDashboardPayload(label: string, visualizationId: string, baseUrl: string): DashboardPayload {
   return {
-    name: `Data Share Hub: ${label}`.slice(0, 230),
+    name: `Scoped Data Sharing: ${label}`.slice(0, 230),
     dashboardItems: [
       { type: 'VISUALIZATION', visualization: { id: visualizationId } },
       { type: 'TEXT', text: buildInstructionsText(baseUrl) },

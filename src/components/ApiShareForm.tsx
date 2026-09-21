@@ -250,7 +250,7 @@ export function ApiShareForm({ currentUsername, shares, onClose, onSaveShare }: 
           ) : accounts.length === 0 ? (
             <NoticeBox title={i18n.t('No existing service accounts yet')}>
               {i18n.t(
-                'No Data Share Hub service account has been created on this instance yet -- switch to "Create a new service account" for this first share.',
+                'No Scoped Data Sharing service account has been created on this instance yet -- switch to "Create a new service account" for this first share.',
               )}
             </NoticeBox>
           ) : (

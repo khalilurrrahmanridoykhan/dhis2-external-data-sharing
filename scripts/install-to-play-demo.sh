@@ -60,9 +60,9 @@ else
 fi
 
 echo
-echo "The app's launch URL is normally: ${BASE_URL}/apps/data-share-hub"
+echo "The app's launch URL is normally: ${BASE_URL}/apps/scoped-data-sharing"
 echo "(no trailing slash -- with one it 302s back to itself). Confirm with:"
-echo "  curl -I -u \"\$PLAY_USERNAME:\$PLAY_PASSWORD\" \"${BASE_URL}/apps/data-share-hub\""
+echo "  curl -I -u \"\$PLAY_USERNAME:\$PLAY_PASSWORD\" \"${BASE_URL}/apps/scoped-data-sharing\""
 echo "Then open that URL in a private/incognito window (log in with the demo"
 echo "credentials when prompted -- that's DHIS2's own login page) before"
 echo "sharing it, since play instances reset periodically."

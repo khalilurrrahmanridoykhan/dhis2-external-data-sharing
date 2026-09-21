@@ -53,7 +53,7 @@ describe('buildVisualizationPayload', () => {
 
   test('prefixes the name so it is identifiable as created by this app', () => {
     const payload = buildVisualizationPayload('Test share', ['de1'], ['ou1'])
-    expect(payload.name).toBe('Data Share Hub: Test share')
+    expect(payload.name).toBe('Scoped Data Sharing: Test share')
   })
 
   test('truncates a very long label to stay within DHIS2 name length limits', () => {
@@ -69,7 +69,7 @@ describe('buildDashboardPayload', () => {
     expect(payload.dashboardItems).toHaveLength(2)
     expect(payload.dashboardItems[0]).toEqual({ type: 'VISUALIZATION', visualization: { id: 'vis1' } })
     expect(payload.dashboardItems[1].type).toBe('TEXT')
-    expect(payload.name).toBe('Data Share Hub: Test share')
+    expect(payload.name).toBe('Scoped Data Sharing: Test share')
   })
 })
 

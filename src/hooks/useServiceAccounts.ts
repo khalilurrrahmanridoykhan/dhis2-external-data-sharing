@@ -27,7 +27,7 @@ interface UsersResponse {
   accounts: { users: RawUser[] }
 }
 
-// Existing Data Share Hub service accounts, for the "attach to an existing
+// Existing Scoped Data Sharing service accounts, for the "attach to an existing
 // account" picker. Only ever fires once a shared role exists (roleId
 // non-null) -- if no api_account share has ever been created on this
 // instance, the role doesn't exist yet, so the picker shows "none yet"
